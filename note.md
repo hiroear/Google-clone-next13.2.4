@@ -18,7 +18,7 @@ warn  - You have enabled experimental feature (appDir) in next.config.js.
 warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
 というエラーがコンソールに出るが、無視してOK。↓
   const nextConfig = {
-    /* 以下を追記 */
+    // 以下を追記
     experimental: {
       appDir: true,
     },
@@ -29,5 +29,15 @@ warn  - Experimental features are not covered by semver, and may cause unexpecte
 
 # react-icons をインストール
   % npm install react-icons --save
+
+
+# app/page.tsx にて wikipedia から取得する画像を使うため、next/image の設定を next.config.js に追記↓
+  experimental: {
+    appDir: true,
+  },
+  // 以下を追記
+  images: {
+    domains: ["upload.wikimedia.org"],    // 画像を使用する許可されたホスト名を配列で指定
+  },
 
 ```
