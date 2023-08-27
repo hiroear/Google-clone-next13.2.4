@@ -2,6 +2,6 @@
 
 export default function Home() {
   return (
-    <div>TOP PAGE</div>
+    <div className="text-red-600">TOP PAGE</div>
   )
 }
