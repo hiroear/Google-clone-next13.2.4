@@ -27,4 +27,7 @@ warn  - Experimental features are not covered by semver, and may cause unexpecte
   module.exports = nextConfig
 
 
+# react-icons をインストール
+  % npm install react-icons --save
+
 ```

@@ -1,7 +1,12 @@
-
+import HomeHeader from './components/HomeHeader'
 
 export default function Home() {
   return (
-    <div className="text-red-600">TOP PAGE</div>
+    <div>
+      <HomeHeader /> {/* Header */}
+
+      {/* Body */}
+      
+    </div>
   )
 }
