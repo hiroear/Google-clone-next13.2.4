@@ -40,4 +40,12 @@ warn  - Experimental features are not covered by semver, and may cause unexpecte
     domains: ["upload.wikimedia.org"],    // 画像を使用する許可されたホスト名を配列で指定
   },
 
+
+# next/themes の設定
+  1. % npm install next-themes で、next/themes をインストール
+  2. tailwind.config.ts に darkMode: 'class', を追記
+  3. app直下に Providers.tsx ファイルを作る。(ファイル参照)
+  4. app/layout.tsx の <body/>タグ以下を <Providers />で囲む (import Providers from "./Providers";)
+  5. components/DarkModeSwitch.tsx にて、useTheme を import して設定
+
 ```

@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Footer from './components/Footer'
 import Favicon from '/public/favicon.svg'; //publicフォルダから favicon.svg を読み込む
+import Providers from './Providers'
 
 export const metadata: Metadata = {
   title: 'google clone Next13',
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        {children}
-        <Footer />
+        <Providers>
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
