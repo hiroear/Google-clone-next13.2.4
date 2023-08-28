@@ -1,4 +1,4 @@
-
+// TOPページのヘッダー部分
 import Link from "next/link"
 import { TbGridDots } from "react-icons/tb"
 import { ReactElement } from "react" // これはなくてもいい なくても動く

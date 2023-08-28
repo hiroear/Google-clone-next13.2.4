@@ -1,3 +1,4 @@
+// TOPページの中央の検索窓 / [Google Search]ボタン / [I am feeling lucky]ボタン
 'use client'
 import { useState, FormEvent, FC } from 'react'
 import { useRouter } from 'next/navigation'
