@@ -1,3 +1,4 @@
+// ルートページ: このファイルを export することで、配下のファイルを全て export することになる
 import Image from 'next/image'
 import HomeHeader from './components/HomeHeader'
 import HomeSearch from './components/HomeSearch'

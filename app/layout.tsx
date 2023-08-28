@@ -1,5 +1,7 @@
+// ルートレイアウト: 全ページに共通するコンポーネントを定義
 import './globals.css'
 import type { Metadata } from 'next'
+import Footer from './components/Footer'
 import Favicon from '/public/favicon.svg'; //publicフォルダから favicon.svg を読み込む
 
 export const metadata: Metadata = {
@@ -15,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

@@ -6,7 +6,12 @@
   .btn {              /* @layer で定義したグループに対して、クラスを定義。　すると、そのグループに対して一括で CSS を適用することができる */
     @apply bg-[#f8f9fa] rounded-md text-sm text-gray-800 hover:ring-1 hover:ring-gray-200 focus:outline-none active:ring-gray-300 hover:shadow-md w-36 h-10 transition-shadow;
   }
+  /* rounded-md: border-radius: 0.375rem; | hover:ring-1: hover時に、border: 1px solid; | hover:ring-gray-200: hover時に、border-color: #edf2f7; */
+  /* active:ring-gray-300: active時に、border-color: #e2e8f0; | w-36: width: 9rem; | h-10 は、height: 2.5rem; | transition-shadow は、transition: box-shadow 0.15s ease-in-out; */
+
+  .link {
+    @apply hover:underline cursor-pointer;
+  }
+
 }
-/* rounded-md: border-radius: 0.375rem; | hover:ring-1: hover時に、border: 1px solid; | hover:ring-gray-200: hover時に、border-color: #edf2f7; */
-/* active:ring-gray-300: active時に、border-color: #e2e8f0; | w-36: width: 9rem; | h-10 は、height: 2.5rem; | transition-shadow は、transition: box-shadow 0.15s ease-in-out; */
 

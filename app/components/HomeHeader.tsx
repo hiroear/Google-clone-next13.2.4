@@ -20,4 +20,4 @@ const HomeHeader = (): ReactElement => {
   )
 }
 
-export default HomeHeader
+export default HomeHeader;
