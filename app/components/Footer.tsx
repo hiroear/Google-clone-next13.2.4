@@ -3,7 +3,7 @@ import CountryLookUp from "./CountryLookUp"
 
 const Footer: FC = () => {
   return (
-    <footer className="absolute bottom-0 text-sm text-gray-500 bg-[#f2f2f2] w-full"> {/* absolute: 絶対位置に配置する | bottom-0: 下端に配置する */}
+    <footer className="absolute bottom-0 text-sm text-gray-500 bg-[#f2f2f2] w-full"> {/* absolute: ルートレイアウトの relativeに対して絶対位置に配置 | bottom-0: 下端に配置する */}
       <div className="border-b px-8 py-3"> {/* border-b: border-bottom */}
         <CountryLookUp /> {/* ipアドレスで国を取得 */}
       </div>

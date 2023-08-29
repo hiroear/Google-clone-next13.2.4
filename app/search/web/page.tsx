@@ -1,6 +1,7 @@
 // <HomeSearch/> <SearchBox/> <SearchHeaderOptions/> から届いたキーワードの検索結果一覧を表示するページ /search/web?searchTerm='キーワード'
 import type { GoogleSearchTypes } from '../../googleSearch.types'
 import Link from 'next/link'
+import WebSearchResults from '../../components/WebSearchResults'
 
 
 export default async function WebSearchPage({ searchParams }: { searchParams: { searchTerm?: string }}) {  // クライアントコンポーネントでは useSearchParams(Hooks) でクエリパラメーター(?以降)を取得するが、サーバーコンポーネントでは searchParams で取得する
@@ -8,6 +9,7 @@ export default async function WebSearchPage({ searchParams }: { searchParams: { 
   // const startIndex = searchParams.start || "1";
   // console.log(startIndex);
   
+  await new Promise((resolve) => setTimeout(resolve, 2000)); // APIの制限に引っかからないようにするため、スタイルが適用されてからデータを取得するまでの時間を2秒にする
 
   // google search api を使って検索結果を取得
   const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchTerm})`)
@@ -17,9 +19,9 @@ export default async function WebSearchPage({ searchParams }: { searchParams: { 
     throw new Error("Something went wrong");
   }
 
-  const data: { items: GoogleSearchTypes[] } = await response.json() // response を読み取って、その中に入っている情報を JSON形式で解釈 → promiseを返す
-  const results: GoogleSearchTypes[] = data.items         // JSONデータの配列から items を取得 ( items: [{}, {}, {}] )
-  // console.log(results);
+  const data: GoogleSearchTypes = await response.json() // response を読み取って、その中に入っている情報を JSON形式で解釈 → promiseを返す
+  const results = data.items         // JSONデータの配列から items を取得 ( items: [{}, {}, {}] )
+  // console.log(data);
 
   // 検索結果がない場合
   if (!results) {
@@ -39,12 +41,8 @@ export default async function WebSearchPage({ searchParams }: { searchParams: { 
   // 検索結果がある場合
   return (
     <>
-      {results.map((result) => (
-        <ul key={result.link}>
-          <li>{result.formattedUrl}</li>
-          <li>{result.title}</li>
-        </ul>
-      ))}
+      {results && <WebSearchResults data={data} />}
+      {/* ページ数と時間に関する情報も必要のため、results ではなく data を渡す */}
     </>
   )
 }

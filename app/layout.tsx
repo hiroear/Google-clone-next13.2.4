@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>
+      <body className='relative min-h-screen'> {/* relative: footerの absoluteに対して | min-h-screen: 最低でも画面の高さいっぱいまで表示する */}
         <Providers>
           {children}
           <Footer />

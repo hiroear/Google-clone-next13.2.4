@@ -48,4 +48,9 @@ warn  - Experimental features are not covered by semver, and may cause unexpecte
   4. app/layout.tsx の <body/>タグ以下を <Providers />で囲む (import Providers from "./Providers";)
   5. components/DarkModeSwitch.tsx にて、useTheme を import して設定
 
+
+# html-react-parser をインストール (ブラウザに表示されるHTMLをReactで扱えるようにする)
+  1. % npm install html-react-parser --save
+  2. 使用するコンポーネントの上部に import parse from "html-react-parser"; を追記
+  3. parse(HTML) で、HTMLをReactで扱えるようにする (例: {Parse(item.htmlSnippet)})
 ```
