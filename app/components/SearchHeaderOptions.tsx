@@ -1,11 +1,13 @@
+// searchページのヘッダーすぐ下の [All] と [Images] のタブ
 'use client'
+import { FC } from 'react';
 import { usePathname, useRouter, useSearchParams } from "next/navigation"; // 現在のURLのパスを取得する
 import { AiOutlineSearch, AiOutlineCamera } from "react-icons/ai";
 
 
-const SearchHeaderOptions = () => {
-  const pathname = usePathname(); // usePathname を初期化 (pathname: /search/web | /search/image)
+const SearchHeaderOptions: FC = () => {
   const router = useRouter();
+  const pathname = usePathname(); // usePathname を初期化 (pathname: /search/web | /search/image)
   const searchParams = useSearchParams(); // useSearchParams: クエリパラメーター(URLの ?以降)を取得する
   const searchTerm = searchParams.get('searchTerm'); // クエリパラメーターの searchTerm を取得 (検索された値)
 
@@ -15,7 +17,7 @@ const SearchHeaderOptions = () => {
     /* [All]をクリックしたら → /search/web?searchTerm=${searchTerm} に遷移
       [Images]をクリックしたら → /search/image?searchTerm=${searchTerm} に遷移 */
   }
-  
+
   return (
     <div className="flex space-x-2 select-none border-b w-full justify-center lg:justify-start lg:pl-52 text-gray-700 text-sm"> {/* select-none: テキストを選択できないようにする */}
       <div onClick={selectTab('All')} className={`flex items-center space-x-1 border-b-4 border-transparent active:text-blue-500 cursor-pointer pb-3 px-2 ${pathname === "/search/web" && "!text-blue-600 !border-blue-600"}`} >
