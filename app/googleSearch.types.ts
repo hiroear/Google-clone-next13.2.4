@@ -23,7 +23,18 @@ export interface GoogleSearchTypes {
         htmlSnippet: string;
         formattedUrl: string;
         htmlFormattedUrl: string;
-        pagemap: Object;
+        pagemap: object ;
+        mime: string;
+        fileFormat : string;
+        image : {
+          contextLink : string;
+          height : number;
+          width : number;
+          byteSize : number;
+          thumbnailLink : string;
+          thumbnailHeight : number;
+          thumbnailWidth : number;
+        },
       }
     ]
 }
