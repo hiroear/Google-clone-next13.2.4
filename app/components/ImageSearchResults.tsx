@@ -1,5 +1,6 @@
 import type { GoogleSearchTypes } from '../googleSearch.types'
 import Link from 'next/link'
+import PaginationButtons from './PaginationButtons'
 
 export default function ImageSearchResults({ data }: { data: GoogleSearchTypes }) {
   return (
@@ -30,6 +31,9 @@ export default function ImageSearchResults({ data }: { data: GoogleSearchTypes }
             </div>
           </div>
         ))}
+      </div>
+      <div className="ml-16">
+        <PaginationButtons />
       </div>
     </div>
   )

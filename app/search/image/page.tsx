@@ -4,12 +4,14 @@ import Link from 'next/link'
 import ImageSearchResults from '../../components/ImageSearchResults'
 
 
-export default async function ImageSearchPage({ searchParams }: { searchParams: { searchTerm?: string }}) {  // クライアントコンポーネントでは useSearchParams(Hooks) でクエリパラメーター(?以降)を取得するが、サーバーコンポーネントでは searchParams で取得する
+export default async function ImageSearchPage({ searchParams }: { searchParams: { searchTerm?: string, start: string  }}) {  // クライアントコンポーネントでは useSearchParams(Hooks) でクエリパラメーター(?以降)を取得するが、サーバーコンポーネントでは searchParams で取得する
   const searchTerm = searchParams.searchTerm
+  const startIndex = searchParams.start || '1'; // クエリパラメーターの start を取得 (検索結果の開始位置) startがなければ 1 を代入 (1ページ目から表示)し、あればその値を代入
+
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   // google search api を使って検索結果を取得
-  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchTerm}&searchType=image`)
+  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}&searchType=image`)
 
   if (!response.ok) {
     console.log(response);

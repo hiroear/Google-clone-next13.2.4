@@ -4,15 +4,14 @@ import Link from 'next/link'
 import WebSearchResults from '../../components/WebSearchResults'
 
 
-export default async function WebSearchPage({ searchParams }: { searchParams: { searchTerm?: string }}) {  // クライアントコンポーネントでは useSearchParams(Hooks) でクエリパラメーター(?以降)を取得するが、サーバーコンポーネントでは searchParams で取得する
-  const searchTerm = searchParams.searchTerm // クエリパラメーターの searchTermを取得。 ?searchTerm=○○○○" が届いたら "○○○○"部分を searchTerm に格納
-  // const startIndex = searchParams.start || "1";
-  // console.log(startIndex);
+export default async function WebSearchPage({ searchParams }: { searchParams: { searchTerm?: string, start: string }}) {  // クライアントコンポーネントでは useSearchParams(Hooks) でクエリパラメーター(?以降)を取得するが、サーバーコンポーネントでは searchParams で取得する
+  const searchTerm = searchParams.searchTerm    // クエリパラメーターの searchTermを取得
+  const startIndex = searchParams.start || '1'; // クエリパラメーターの start を取得 (検索結果の開始位置) startがなければ 1 を代入 (1ページ目から表示)し、あればその値を代入
   
   await new Promise((resolve) => setTimeout(resolve, 2000)); // APIの制限に引っかからないようにするため、スタイルが適用されてからデータを取得するまでの時間を2秒にする
 
-  // google search api を使って検索結果を取得
-  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchTerm})`)
+  // google custom search api を使って検索結果を取得
+  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchTerm}&start=${startIndex}`) // start: 検索結果の開始位置を指定 (10件ごとに start の値を変える (10件ごとに検索結果を表示))
 
   if (!response.ok) {
     console.log(response);

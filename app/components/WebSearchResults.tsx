@@ -2,6 +2,7 @@
 import type { GoogleSearchTypes } from '../googleSearch.types'
 import Parse from 'html-react-parser' // htmlをパースしてくれる (htmlをJSXに変換してくれる)
 import Link from 'next/link'
+import PaginationButtons from './PaginationButtons'
 
 
 export default function WebSearchResults({ data }: { data: GoogleSearchTypes }) {
@@ -23,7 +24,7 @@ export default function WebSearchResults({ data }: { data: GoogleSearchTypes }) 
           <p className="text-gray-600">{Parse(item.htmlSnippet)}</p>
         </div>
       ))}
-
+      <PaginationButtons />
     </div>
   )
 }
