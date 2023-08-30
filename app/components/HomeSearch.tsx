@@ -37,7 +37,7 @@ const HomeSearch: FC = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className="flex w-full mt-5 mx-auto max-w-[90%] border border-gray-200 px-5 py-3 rounded-full hover:shadow-md focus-within:shadow-md transition-shadow sm:max-w-xl lg:max-w-2xl" >
-        {/* mx-auto: margin auto (center) | max-w-[90%]: max-width 90% | rounded-full: border-radius 50% | hover:shadow-md: hover時にshadowを付ける | focus-within:shadow-md: focus中にshadowをずっと付ける | transition-shadow: shadowの変化をtransitionで滑らかにする | sm:max-w-xl: smサイズ以上の時はmax-width 640px | lg:max-w-2xl: lgサイズ以上の時はmax-width 1024px */}
+        {/* max-w-[90%]: max-width 90% | rounded-full: border-radius 50% | hover:shadow-md: hover時にshadowを付ける | focus-within:shadow-md: focus中にshadowをずっと付ける | transition-shadow: shadowの変化をtransitionで滑らかにする | sm:max-w-xl: smサイズ以上の時はmax-width 640px | lg:max-w-2xl: lgサイズ以上の時はmax-width 1024px */}
         <AiOutlineSearch className="text-xl text-gray-500 mr-3" />
         <input type='text' className="flex-grow focus:outline-none" value={input} onChange={e => setInput(e.target.value)}
           // flex-grow: 残りのスペースを埋める | focus:outline-none: focus時にoutlineを消す

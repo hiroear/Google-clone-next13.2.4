@@ -1,7 +1,7 @@
 // TOPページのヘッダー部分
 import Link from "next/link"
 import { TbGridDots } from "react-icons/tb"
-import { ReactElement } from "react" // これはなくてもいい なくても動く
+import { ReactElement } from "react"          // これはなくてもいい なくても動く
 import DarkModeSwitch from "./DarkModeSwitch" // ダークモード / ライトモード切り替えボタン
 
 const HomeHeader = (): ReactElement => {

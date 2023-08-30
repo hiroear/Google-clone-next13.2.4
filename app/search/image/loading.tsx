@@ -8,7 +8,7 @@ export default function loading() {
         <div className="h-2 w-48 mb-2.5 bg-gray-200 rounded-md"></div> {/* h-2: height 8px | mb-2.5: margin-bottom 10px */}
         <div className="h-2 w-44 mb-2.5 bg-gray-200 rounded-md"></div> {/* w-44: width 176px */}
       </div>
-      <div className="hidden sm:inline-flex sm:space-x-4"> {/* hidden: 基本はは非表示 | sm:inline-flex: sm以上の時は子要素を横に並べる | sm:space-x-4: smサイズ以上の時は子要素の間のスペースを4にする */}
+      <div className="hidden sm:inline-flex sm:space-x-4"> {/* hidden: 基本は非表示 | sm:inline-flex: sm以上の時は子要素を横に並べる | sm:space-x-4: smサイズ以上の時は子要素の間のスペースを4にする */}
         <div className="animate-pulse">
           <div className="h-48 w-48 mb-4 bg-gray-200 rounded-md"></div>
           <div className="h-2 w-48 mb-2.5 bg-gray-200 rounded-md"></div>

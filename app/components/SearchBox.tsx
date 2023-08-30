@@ -7,7 +7,7 @@ import { BsFillMicFill } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
 
 const SearchBox: FC = () => {
-  const searchParams = useSearchParams(); // URLのクエリパラメータを取得する
+  const searchParams = useSearchParams();                  // URLのクエリパラメータを取得する
   const searchTerm = searchParams.get('searchTerm') || ''; // URLのクエリパラメータのsearchTermを取得する。なければ空白を返す
   const [term, setTerm] = useState<string>(searchTerm || ""); // 検索窓に検索されて届いた値が初期値でセットされる
   const router = useRouter();

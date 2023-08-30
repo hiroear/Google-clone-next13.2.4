@@ -1,14 +1,14 @@
-// searchページのヘッダーすぐ下の [All] と [Images] のタブ
+// searchページヘッダーすぐ下の [All] と [Images] のタブ
 'use client'
 import { FC } from 'react';
-import { usePathname, useRouter, useSearchParams } from "next/navigation"; // 現在のURLのパスを取得する
+import { usePathname, useRouter, useSearchParams } from "next/navigation"; // usePathname: 現在のURLのパスを取得する
 import { AiOutlineSearch, AiOutlineCamera } from "react-icons/ai";
 
 
 const SearchHeaderOptions: FC = () => {
   const router = useRouter();
-  const pathname = usePathname(); // usePathname を初期化 (pathname: /search/web | /search/image)
-  const searchParams = useSearchParams(); // useSearchParams: クエリパラメーター(URLの ?以降)を取得する
+  const pathname = usePathname();         // usePathname を初期化 (pathname: /search/web | /search/image)
+  const searchParams = useSearchParams(); // useSearchParams: クエリパラメーター(URLの ?以降)を取得
   const searchTerm = searchParams.get('searchTerm'); // クエリパラメーターの searchTerm を取得 (検索された値)
 
   // [All] or [Images] をクリックした時の処理

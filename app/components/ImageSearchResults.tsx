@@ -1,3 +1,4 @@
+// app/search/image/page で画像検索結果を一覧表示するコンポーネント
 import type { GoogleSearchTypes } from '../googleSearch.types'
 import Link from 'next/link'
 import PaginationButtons from './PaginationButtons'

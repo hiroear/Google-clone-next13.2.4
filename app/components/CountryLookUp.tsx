@@ -11,9 +11,7 @@ const CountryLookUp: FC = () => {
     .then((data) => setCountry(data.country)) // Promise が解決された際に JSONデータを取得 (data: {businessName: '', businessWebsite: '', city: 'Kitakyushu', continent: 'Asia', country: 'Japan', …}
   }, [])
 
-  return (
-    <div>{country}</div>
-  )
+  return <div>{country}</div>
 }
 
 export default CountryLookUp;

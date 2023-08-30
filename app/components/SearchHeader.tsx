@@ -1,4 +1,4 @@
-// Searchページ配下専用のヘッダー / ロゴ、検索ボックス、アイコン、サインインボタンを配置
+// searchページ配下専用のヘッダー / ロゴ、検索ボックス、アイコン、サインインボタンを配置
 import { FC } from "react"
 import Link from "next/link"
 import Image from "next/image"
